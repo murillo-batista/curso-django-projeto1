@@ -18,11 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse  # Library to return http responses
+from recipes.views import home, contato, sobre
 
 
-# HTTP REQUEST
-def my_view(request):
-    return HttpResponse("Hello World")  # Http Response
-
-
-urlpatterns = [path("admin/", admin.site.urls), path("sobre/", my_view)]
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", home),
+    path("contato/", contato),
+    path("sobre/", sobre),
+]
